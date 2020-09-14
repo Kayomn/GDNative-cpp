@@ -191,6 +191,9 @@ def new_method_declaration(document: Document, method: dict) -> None:
 		if ((literal == "Null") or (literal == "[Object:null]")):
 			return (type_name + "()")
 
+		if (type_name == "godot::core::Variant"):
+			return ("godot::core::Variant(" + literal + ")")
+
 		if (literal == "[RID]"):
 			return "RID()"
 
