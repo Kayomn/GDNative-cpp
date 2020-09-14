@@ -229,7 +229,13 @@ def new_method_declaration(document: Document, method: dict) -> None:
 
 		elements.pop()
 
-	elements.append(");\n")
+	elements.append(")")
+
+	if (method["is_const"]):
+		elements.append(" const;\n")
+	else:
+		elements.append(";\n")
+
 	document.elements.append(str().join(elements))
 
 document = Root(None, [])
